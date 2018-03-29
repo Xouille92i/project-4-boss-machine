@@ -161,6 +161,7 @@ apiRouter.post('/minions/:minionId/work', (req, res, next) => {
     console.log(req.body);
 });
 
+apiRouter.param('workId', (req, res, next, id) => {
   const work = db.getFromDatabaseById('work', id);
   if (work) {
     req.work = work;
