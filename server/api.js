@@ -153,7 +153,7 @@ apiRouter.get('/minions/:minionId/work', (req, res, next) => {
 });
 
 //POST /api/minions/:minionId/work to create a new work object and save it to the database.
-apiRouter.post('/api/minions/:minionId/work', (req, res, next) => {
+apiRouter.post('/minions/:minionId/work', (req, res, next) => {
   const minionId = req.params.minionId;
   const newWork = createWork(minionId);
   db.addToDatabase(req.model, newWork)
@@ -161,7 +161,6 @@ apiRouter.post('/api/minions/:minionId/work', (req, res, next) => {
     console.log(req.body);
 });
 
-/*apiRouter.param('workId', (req, res, next, id) => {
   const work = db.getFromDatabaseById('work', id);
   if (work) {
     req.work = work;
@@ -169,7 +168,7 @@ apiRouter.post('/api/minions/:minionId/work', (req, res, next) => {
   } else {
     res.status(404).send();
   }
-});*/
+});
 
 //PUT /api/minions/:minionId/work/:workId to update a single work by id.
 apiRouter.put('/minions/:minionId/work/:workId', (req, res, next) => {
